@@ -7,11 +7,11 @@ var db = require("../models");
 module.exports = function(app) {
 
   // GET route for getting all of the posts
-  
-  app.get("/api/qol", function(req, res) {
+
+  app.get("/api/university", function(req, res) {
     var query = {};
-    if (req.query.author_id) {
-      query.AuthorId = req.query.author_id;
+    if (req.query.university) {
+      query.cityId= req.query.uni_city;
     }
     db.Post.findAll({
       where: query
@@ -31,7 +31,7 @@ module.exports = function(app) {
       res.json(dbPost);
     });
   });
-
+// // THIS WILL MIMIC OUR FORUM METHODS? 
   // POST route for saving a new post
   app.post("/api/posts", function(req, res) {
     db.Post.create(req.body).then(function(dbPost) {

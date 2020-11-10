@@ -6,10 +6,18 @@ module.exports = function(sequelize, DataTypes) {
     //LGBTQAI+ friendly (LGBT-INDEX), string value, if >75 friendly, 50-75 okay, <50= not so great
     //crime rate CRIME-RATE-TELESCORE, or some others related to guns/gun deaths per 100000
     //there are other metrics they have like weather, traffic, and eco-friendly if those are ones we aim to include
-    
-    var qol = sequelize.define("qol", {
+
+    //Atlanta
+    //Baltimore
+    //Chicago
+    //Miami
+    //Memphis
+    //Nashville
+    //Philadelphia
+
+    var Qol = sequelize.define("qol", {
       costOfLiving: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: true,
         validate: {
           len: [1]
@@ -31,9 +39,7 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       },
       lgbtFriendly: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        len: [1]
+        type: DataTypes.BOOLEAN,
       },
       crimeScore: {
         type: DataTypes.INTEGER,
@@ -45,12 +51,12 @@ module.exports = function(sequelize, DataTypes) {
     qol.associate = function(models) {
       // We're saying that a Post should belong to an Author
       // A Post can't be created without an Author due to the foreign key constraint
-      Post.belongsTo(models.university, {
+    qol.belongsTo(models.university, {
         foreignKey: {
           allowNull: false
         }
       });
     };
   
-    return Post;
+    return Qol;
   };

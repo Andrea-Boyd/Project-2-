@@ -8,9 +8,8 @@ $("#submit-btn").on("click", function (event) {
     console.log(search);
 
     $.ajax({
-        URL: queryURL,
+        url: queryURL,
         method: "GET",
-        contentType: "application/vnd.teleport.v1+json"
     }).then(function (response) {
         console.log(response);
         })
