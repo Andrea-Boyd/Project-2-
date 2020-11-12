@@ -9,11 +9,17 @@ $("#submit-btn").on("click", function (event) {
     cityID=
     event.preventDefault();
     console.log(search);
-//this will actaully be routed to the db,api route, and template engine, nit the third party
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-    }).then(function (response) {
-        console.log(response);
-        })
+//get api route for pulling our city page with our user generated data from our forum
 });
+
+
+function getQOL(scores) {
+    $.ajax({
+      method: "GET",
+      url: "/api/university",
+      data: scores
+    })
+      .then(function() {
+        window.location.href = "/scores";
+      });
+  }
