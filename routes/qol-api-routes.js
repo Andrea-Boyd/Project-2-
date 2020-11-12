@@ -8,15 +8,16 @@ module.exports = function(app) {
 
   // GET route for getting all of the posts
 
+//get city qoa info based on university's city
   app.get("/api/university", function(req, res) {
     var query = {};
     if (req.query.university) {
-      query.cityId= req.query.uni_city;
+      query.city= req.query.uni_city;
     }
-    db.Post.findAll({
+    db.Qoa.findAll({
       where: query
-    }).then(function(dbPost) {
-      res.json(dbPost);
+    }).then(function(dbQoa) {
+      res.json(dbQoa);
     });
   });
 
@@ -35,30 +36,6 @@ module.exports = function(app) {
   // POST route for saving a new post
   app.post("/api/posts", function(req, res) {
     db.Post.create(req.body).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
-
-  // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function(req, res) {
-    db.Post.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
-
-  // PUT route for updating posts
-  app.put("/api/posts", function(req, res) {
-    db.Post.update(
-      req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      }).then(function(dbPost) {
       res.json(dbPost);
     });
   });
