@@ -3,8 +3,7 @@ module.exports = function(sequelize, DataTypes) {
       name: DataTypes.STRING,
     });
     City.associate = function(models) {
-        // Associating Author with Posts
-        // When an Author is deleted, also delete any associated Posts
+      
         City.hasMany(models.Univ, {
           onDelete: "cascade"
         });

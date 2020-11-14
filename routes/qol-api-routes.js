@@ -10,20 +10,21 @@ module.exports = function(app) {
   // GET route for getting all of the posts
 
 //get city qoa info based on university's city
-  app.get("/api/university/:id", function(req, res) {
+  app.get("/api/:city", function(req, res) {
+    console.log("This route works")
     //may need to catch :uniersity then id, then city
-    let query= req.params.id
-    db.Qoa.findAll({
-      where: query
-    }).then(function(dbQoa) {
-      res.json(dbQoa.city);
+    // let query= req.params.id
+    // db.Qoa.findAll({
+      // where: query
+    // }).then(function(dbQoa) {
+      // res.json(dbQoa.city);
     });
-  });
+  // });
 
   // Get route form making a new forum post
   // will need to select each city to post review to 
   // 
-  app.pos("/api/:id/:userInput", function(req, res) {
+  app.post("/api/:id/:userInput", function(req, res) {
     db.Univ.create({
       where: {
         id: req.params.id
@@ -34,10 +35,10 @@ module.exports = function(app) {
     });
   });
 };
-app.post("/api/posts", function(req, res) {
-  db.Qol.create({
-    where :{ id:req.params.id}
-  }).then(function(req) {
-    res.json(req.body);
-  });
-});
+// app.post("/api/posts", function(req, res) {
+//   db.Qol.create({
+//     where :{ id:req.params.id}
+//   }).then(function(req) {
+//     res.json(req.body);
+//   });
+// });
