@@ -1,5 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
-    var Qol = sequelize.define("Qol", {
+    
+  var Qol = sequelize.define("Qol", {
       costOfLiving: {
         type: DataTypes.INTEGER,
         allowNull: true,
@@ -41,6 +42,10 @@ module.exports = function(sequelize, DataTypes) {
       },
       lgbtFriendlyRev: {
         type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+          len: [1]
+        }
       },
       crimeScoreRev: {
         type: DataTypes.STRING,
