@@ -28,7 +28,7 @@ $(document).ready(function () {
 
 
   function updateScore(review) {
-
+//for updating acerage score for each QOL metric
     $.ajax({
       method: "PUT",
       where: { id: cityID },
