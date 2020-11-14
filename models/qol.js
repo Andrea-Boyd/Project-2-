@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Qol = sequelize.define("qol", {
+    var Qol = sequelize.define("Qol", {
       costOfLiving: {
         type: DataTypes.INTEGER,
         allowNull: true,
@@ -10,7 +10,9 @@ module.exports = function(sequelize, DataTypes) {
       nightLife: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        len: [1]
+        validate: {
+          len: [1]
+        }
       },
       lgbtFriendly: {
         type: DataTypes.BOOLEAN,
@@ -18,18 +20,24 @@ module.exports = function(sequelize, DataTypes) {
       crimeScore: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        len: [1]
+        validate: {
+          len: [1]
+        }
       },
       costOfLivingRev: {
         type: DataTypes.STRING,
         allowNull: true,
-        len: [1]
+        validate: {
+          len: [1]
+        }
         
       },
       nightLifeRev: {
         type: DataTypes.STRING,
         allowNull: true,
-        len: [1]
+        validate: {
+          len: [1]
+        }
       },
       lgbtFriendlyRev: {
         type: DataTypes.STRING,
@@ -37,13 +45,14 @@ module.exports = function(sequelize, DataTypes) {
       crimeScoreRev: {
         type: DataTypes.STRING,
         allowNull: true,
-        len: [1]
+        validate: {
+          len: [1]
+        }
       },
     });
   
     Qol.associate = function(models) {
-      // We're saying that a Post should belong to an Author
-      // A Post can't be created without an Author due to the foreign key constraint
+    
     Qol.belongsTo(models.City, {
         foreignKey: {
           allowNull: false
