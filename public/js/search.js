@@ -1,26 +1,26 @@
-//where teleport%...is filled with urban area ID; will have to run cities through teleport api 
-//to fetch unvieristy's city ID if on teleport then send to the urban area details api call
-let universityID="";
-//const queryURL = "https://api.teleport.org/api/urban_areas/"+cityID+"/scores/";
+
+let university = $("#search").val();
 
 
-$("#submit-btn").on("click", function (event) {
-    const search= $("#search").val();
-    //need to get city from university ID
-    event.preventDefault();
-    console.log(universityID);
-//get api route for pulling our city page with our user generated data from our forum
+$("#submit").on("click", function (event) {
+  event.preventDefault();
+  // const search = $("#search").val();
+  // console.log(search);
+  console.log(university)
+  getQOL("atlanta");
+
+  //need to get corresponding id 
+  //get api route for pulling our city page with our user generated data from our forum
 });
 
 
-function getQOL(scores) {
-    $.ajax({
-      method: "GET",
-      url: "/api/university"+universityID,
-      data: scores
-    })
-      .then(function() {
-        window.location.href = "/scores";
-      });
-  }
- 
+function getQOL(city) {
+  $.ajax({
+    method: "GET",
+    url: "/api/"+city,
+    data: "Tells me about the city of Atlanta"
+  })
+    .then(function () {
+      window.location.href = "/forum";
+    });
+}
