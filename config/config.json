@@ -1,8 +1,8 @@
 {
     "development": {
       "username": "root",
-      "password": "056abg$%",
-      "database": "universities",
+      "password": null,
+      "database": "qolDB",
       "host": "127.0.0.1",
       "port": 3306,
       "dialect": "mysql"
@@ -24,3 +24,4 @@
       "dialect": "mysql"
     }
   }
+

@@ -10,7 +10,7 @@ module.exports = function (app) {
 
     // index route loads view.html
     app.get("/", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/index.html"));
+        res.sendFile(path.join(__dirname, "../public/search.html"));
     });
 
     // cms route loads forum.html
@@ -19,7 +19,7 @@ module.exports = function (app) {
     });
 
     // blog route loads blog.html
-    app.get("/score", function (req, res) {
+    app.get("/cityData", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/score.html"));
     });
 
