@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -16,10 +22,5 @@
   "bugs": {
     "url": "https://github.com/Andrea-Boyd/Project-2-/issues"
   },
-  "homepage": "https://github.com/Andrea-Boyd/Project-2-#readme",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
-  }
+  "homepage": "https://github.com/Andrea-Boyd/Project-2-#readme"
 }
