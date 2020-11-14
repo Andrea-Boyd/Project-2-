@@ -1,26 +1,4 @@
 module.exports = function(sequelize, DataTypes) {
-    //attributes of university quality of life s retrieved by teleport
-    //all under categories array (ex. categories.data.consumer-price-index-telescore)
-    // cost of living (from "CONSUMER-PRICE-INDEX-TELESCORE" meaning inflation)
-    // avg apartments costs (APARTMENT-RENT-LARGE/SMALL/MEDIUM)
-    //LGBTQAI+ friendly (LGBT-INDEX), string value, if >75 friendly, 50-75 okay, <50= not so great
-    //crime rate CRIME-RATE-TELESCORE, or some others related to guns/gun deaths per 100000
-    //there are other metrics they have like weather, traffic, and eco-friendly if those are ones we aim to include
-
-    //Below are filler cities to be used in the case of incorporating teleport
-    //Atlanta
-    //Baltimore
-    //Chicago
-    //Miami
-    //Memphis
-    //Nashville
-    //Philadelphia
-
-
-    //QOL scores are to be populated by user input on forums, displaying average values for each aspect
-    //will need to use Create, Update, and Post methods 
-    
-
     var Qol = sequelize.define("qol", {
       costOfLiving: {
         type: DataTypes.INTEGER,
@@ -29,17 +7,7 @@ module.exports = function(sequelize, DataTypes) {
           len: [1]
         }
       },
-      smallApartment: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        len: [1]
-      },
-      medApartment: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        len: [1]
-      },
-      largeApartment: {
+      nightLife: {
         type: DataTypes.INTEGER,
         allowNull: true,
         len: [1]
@@ -49,6 +17,25 @@ module.exports = function(sequelize, DataTypes) {
       },
       crimeScore: {
         type: DataTypes.INTEGER,
+        allowNull: true,
+        len: [1]
+      },
+      costOfLivingRev: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        len: [1]
+        
+      },
+      nightLifeRev: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        len: [1]
+      },
+      lgbtFriendlyRev: {
+        type: DataTypes.STRING,
+      },
+      crimeScoreRev: {
+        type: DataTypes.STRING,
         allowNull: true,
         len: [1]
       },
