@@ -21,6 +21,12 @@ $(document).ready(function () {
         // // when we hit submit
         // updating = true;
       }
+    }).then(function(res){
+      //begin adding each score and value to cards associated with each qol metric i.e.
+      // the cost/affordability will add an average score for the costScore element of the html
+      //the cost/affordabilityRev will display text comments for the metric
+      $(results).appened(res.affordability)
+      $(results).appened(res.affordabilityRev)
     });
   }
 

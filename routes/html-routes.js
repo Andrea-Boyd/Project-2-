@@ -20,7 +20,7 @@ module.exports = function (app) {
 
     // blog route loads blog.html
     app.get("/cityData", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/score.html"));
+        res.sendFile(path.join(__dirname, "../public/cityData.html"));
     });
 
 };
