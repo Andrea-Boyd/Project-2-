@@ -7,6 +7,7 @@ module.exports = function(sequelize, DataTypes) {
     //crime rate CRIME-RATE-TELESCORE, or some others related to guns/gun deaths per 100000
     //there are other metrics they have like weather, traffic, and eco-friendly if those are ones we aim to include
 
+    //Below are filler cities to be used in the case of incorporating teleport
     //Atlanta
     //Baltimore
     //Chicago
@@ -14,6 +15,11 @@ module.exports = function(sequelize, DataTypes) {
     //Memphis
     //Nashville
     //Philadelphia
+
+
+    //QOL scores are to be populated by user input on forums, displaying average values for each aspect
+    //will need to use Create, Update, and Post methods 
+    
 
     var Qol = sequelize.define("qol", {
       costOfLiving: {
