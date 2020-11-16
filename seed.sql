@@ -20,3 +20,7 @@ USE universities;
 
 INSERT INTO qols (costOfLiving,nightLife,lgbtFriendly,crimeScore,costOfLivingRev,nightLifeRev,lgbtFriendlyRev,crimeScoreRev,createdAt,updatedAt,CityId)
 VALUES(6,6,7,2,"Okay","okay","OkAy","oKaY..",Now(),Now(),6);
+INSERT INTO qols (costOfLiving,nightLife,lgbtFriendly,crimeScore,costOfLivingRev,nightLifeRev,lgbtFriendlyRev,crimeScoreRev,createdAt,updatedAt,CityId)
+VALUES(9,6,5,8,"$$$$","okay","shrug","coolio.",Now(),Now(),2);
+INSERT INTO qols (costOfLiving,nightLife,lgbtFriendly,crimeScore,costOfLivingRev,nightLifeRev,lgbtFriendlyRev,crimeScoreRev,createdAt,updatedAt,CityId)
+VALUES(6,5,5,5,"$$","meh","meh","meh.",Now(),Now(),11);
