@@ -26,16 +26,13 @@ module.exports = function (app) {
             }
         }).then(function(Qol){
             let returnObject = {
-                costOfLiving: Qol.costOfLiving,
-                costOfLivingRev: Qol.costOfLivingRev,
-                nightLife: Qol.nightLife,
-                nightLifeRev: Qol.nightLifeRev,
-                lgbtFriendly: Qol.lgbtFriendly,
-                lgbtFriendlyRev: Qol.lgbtFriendlyRev,
+                costOfLiving: Qol.costOfLiving,                
+                nightLife: Qol.nightLife,                
+                lgbtFriendly: Qol.lgbtFriendly,                
                 crimeScore: Qol.crimeScore,
-                crimeScoreRev: Qol.crimeScoreRev
+                comment: Qol.comment               
             }
-            console.log(Qol.nightLife);
+            
             res.render("cityData", returnObject);
         })
     });
