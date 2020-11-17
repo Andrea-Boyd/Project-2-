@@ -9,4 +9,4 @@ For this project, we used:
 -Heroku for deployment
 -Javascript, HTML, CSS for functionality
 
-For future development, we'd like to add a system to average all the ratings and create a clean look when searching cities.
+For future development, we'd like to add a system to average all the ratings and create a clean look when searching cities. 

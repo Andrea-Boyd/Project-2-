@@ -16,7 +16,6 @@ INSERT INTO univs (name, createdAt, updatedAt, CityId) VALUES ("The University o
 ("University of Colorado", Now(), Now(), 9),("Naropa University", Now(), Now(), 9),("University of Buffalo", Now(), Now(), 10),
 ("Dyouville College", Now(), Now(), 10),("Canisius College", Now(), Now(), 10),("Vanderbilt University", Now(), Now(), 11),
 ("Belmont University", Now(), Now(), 11),("Fisk University", Now(), Now(), 11),("Tennessee State University", Now(), Now(), 11);
-USE universities;
 
 INSERT INTO qols (costOfLiving,nightLife,lgbtFriendly,crimeScore,costOfLivingRev,nightLifeRev,lgbtFriendlyRev,crimeScoreRev,createdAt,updatedAt,CityId)
 VALUES(6,6,7,2,"Okay","okay","OkAy","oKaY..",Now(),Now(),6);
@@ -24,3 +23,6 @@ INSERT INTO qols (costOfLiving,nightLife,lgbtFriendly,crimeScore,costOfLivingRev
 VALUES(9,6,5,8,"$$$$","okay","shrug","coolio.",Now(),Now(),2);
 INSERT INTO qols (costOfLiving,nightLife,lgbtFriendly,crimeScore,costOfLivingRev,nightLifeRev,lgbtFriendlyRev,crimeScoreRev,createdAt,updatedAt,CityId)
 VALUES(6,5,5,5,"$$","meh","meh","meh.",Now(),Now(),11);
+INSERT INTO qols (costOfLiving, nightLife, lgbtFriendly, crimeScore, costOfLivingRev, nightLifeRev, lgbtFriendlyRev, crimeScoreRev, createdAt, updatedAt, CityId) VALUES
+( 1, 2, 3 , 4, "abc", "abc", "abc", "abc", Now(), Now(), 1);
+
