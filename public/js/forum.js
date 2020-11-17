@@ -24,7 +24,7 @@ $(document).ready(function () {
       window.location.href = "/cityData";
     });
   }
-  submitReview(newReview);
+  //submitReview(newReview);
 
 
   function updateScore(review) {
