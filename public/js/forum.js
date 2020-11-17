@@ -15,7 +15,6 @@ $(document).ready(function () {
   // Gets the part of the url that comes after the "?" (which we have if we're updating a post)\
   //catch cityID or name to send new review to that city
   const url = window.location.search;
-  const cityID = "";
 
   const newReview = {
     costOfLiving: costScore.val(),
@@ -26,7 +25,6 @@ $(document).ready(function () {
     crimeScoreRev: crimeText.val().trim(),
     lgbtFriendlyRev: lgbtText.val().trim(),
     nightLifeRev: nightText.val().trim(),
-    //need to include cityID 
   };
 
   function submitReview(info) {
@@ -50,8 +48,9 @@ $(document).ready(function () {
         window.location.href = "/citydata";
       });
   }
-  $("#submitReview").on("click", function (event) {
+  $("#submitrev").on("click", function (event) {
     event.preventDefault();
-    submitReview(newReview)
+    console.log(newReview)
+    // submitReview(newReview)
   })
 });

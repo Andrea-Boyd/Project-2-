@@ -20,5 +20,6 @@ function getQOL(univ) {
       console.log(data);
       window.location.href = "/cityData/" + data[0].id;
     });
-}
+  }
+});
 
