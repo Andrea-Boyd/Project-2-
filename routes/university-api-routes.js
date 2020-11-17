@@ -17,10 +17,9 @@ module.exports = function (app) {
             {
                 model: db.Qol
             }]
-        }).then(function (cityAndUniv) {
-            console.log(cityAndUniv);
-            res.json(cityAndUniv);
+        }).then(function (data) {
+            const city= data[0].name
+            console.log(city);
         });
     });
-
 };
