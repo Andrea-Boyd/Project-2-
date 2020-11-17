@@ -25,10 +25,19 @@ $(document).ready(function () {
       //begin adding each score and value to cards associated with each qol metric i.e.
       // the cost/affordability will add an average score for the costScore element of the html
       //the cost/affordabilityRev will display text comments for the metric
-      $(results).appened(res.affordability)
-      $(results).appened(res.affordabilityRev)
+      $(results).appened(res.costOfLiving)
+      $(results).appened(res.costOfLivingRev)
     });
   }
 
 });
-//eventListen. for Add Review or Return Home 
+//eventListen. for Add Review or Return Home , below this line are both click listeners for those functions
+//(#toForum).on("click",function(event){
+//event.preventDefault();
+//location.href = "./fourm.html";
+// // pass cityID or city to forum.js for further action
+//----------------------------------------------------------------
+//(#newSearch).on("click",function(event){
+//event.preventDefault();
+//location.href = "./search.html";
+//

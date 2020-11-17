@@ -1,7 +1,13 @@
 $(document).ready(function () {
   // Getting jQuery references to the post body, title, form, and author select
-  const bodyInput = $("#body");
-  const cityInput = $("#city");
+  const crimeScore = $("#crimeScore");
+  const crimeText = $("#crimeText");
+  const costScore = $("#costScore");
+  const costText = $("#costText");
+  const lgbtScore = $("#lgbtScore");
+  const lgbtText = $("#cityText");
+  const nightScore = $("#nightScore");
+  const nightText = $("#nightText");
 
   //WILL ADD INPUT FORMS FOR ALL REQUESTED QOL INFO and consts that store each value
   // Adding an event listener for when the form is submitted to call update & send data to qol db 
@@ -12,11 +18,16 @@ $(document).ready(function () {
   const cityID = "";
 
   const newReview = {
-    city: cityinput
-      .val()
-      .trim(),
-    affordability: costScore.val(),
-    safety: safetyScore.val()
+    costOfLiving: costScore.val(),
+    crimeScore: crimeScore.val(),
+    lgbtFriendly:lgbtScore.val(),
+    nightLife:nightScore.val(),
+    costOfLivingRev: costText.val().trim(),
+    crimeScoreRev: crimeText.val().trim(),
+    lgbtFriendlyRev:lgbtText.val().trim(),
+    nightLifeRev:nightText.val().trim(),
+    CityId:something
+    //need to include cityID 
   };
 
   function submitReview(review) {
@@ -42,3 +53,7 @@ $(document).ready(function () {
       });
   }
 });
+$("#submitReview").on("click", function(event){
+  event.preventDefault();
+  submitReview(newReview)
+})
