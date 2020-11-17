@@ -1,3 +1,35 @@
-<p>Type: {{animalType}}</p>
-<p>Pet: {{pet}}</p>
-<p>Fierceness: {{fierceness}}</p>
+<h1>Quotes App</h1>
+
+<p>Manage quotes with this app</p>
+
+<!-- Pass in data from server.js -->
+<ul>
+  {{#each quotes}}
+  	<li>
+  		<p><span class="label">ID:</span> {{this.id}}</p>
+      <p><span class="label">University:</span> {{this.quote}}</p>
+      <p><span class="label">Comment:</span> {{this.author}}</p>
+
+      <button data-id="{{this.id}}" class="delquote">Delete</button>
+
+      <a href="/{{this.id}}">Update this quote</a>
+  	</li>
+  {{/each}}
+</ul>
+
+<h2>Add a Quote</h2>
+
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="auth">University Name:</label>
+    <input type="text" id="auth" name="author">
+  </div>
+
+  <div class="form-group">
+    <label for="quo">Comment:</label>
+    <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
+  </div>
+
+  <button type="submit">Add Review</button>
+</form>
