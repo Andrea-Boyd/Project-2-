@@ -25,29 +25,7 @@ module.exports = function(sequelize, DataTypes) {
           len: [1]
         }
       },
-      costOfLivingRev: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        validate: {
-          len: [1]
-        }
-        
-      },
-      nightLifeRev: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        validate: {
-          len: [1]
-        }
-      },
-      lgbtFriendlyRev: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        validate: {
-          len: [1]
-        }
-      },
-      crimeScoreRev: {
+      comment: {
         type: DataTypes.STRING,
         allowNull: true,
         validate: {
