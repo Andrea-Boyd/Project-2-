@@ -1,12 +1,13 @@
 body {
   font-family: 'Roboto', sans-serif;
   width: 100%;
+  
 }
 
 
 .hero-search-filter {
-  background: url("https://cutewallpaper.org/21/black-and-white-aesthetic-background/Aesthetic-Black-and-White-Laptop-Wallpapers-Top-Free-.jpg") center center no-repeat;
-  height: 600px;
+  background: url("https://cutewallpaper.org/21/black-and-white-aesthetic-background/Aesthetic-Black-and-White-Laptop-Wallpapers-Top-Free-.jpg") center center;
+  height: 800px;
   background-size: cover;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -89,7 +90,7 @@ body {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 50%;
+  width: 75%;
   background: #fefefe;
   padding: 0.25rem;
   border-radius: 5px;
@@ -145,7 +146,7 @@ body {
     1px 1px 0 #000;
 }
 
-#findtext {
+#search {
   width: 90%;
   font-weight: bold;
 }
