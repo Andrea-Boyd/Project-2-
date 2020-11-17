@@ -10,21 +10,34 @@
 <br><br>
         <!-- Pass in data from server.js -->
         <h2>Add a Review</h2>
-        <form>
+        <form id="form">
           <div class="university">
             <label for="exampleFormControlInput1">University Name</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="University of City">
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="University of City" data-rule="required">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Cost Of Living(1=cheaper, 5=expensive)</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
           <div class="comments">
             <label for="exampleFormControlTextarea1">Comment</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
           </div>
         </form>
+        
         <br>
         <button class="submitrev" id="submitrev">Submit Review</button>
         </body>
 </body>
-<script type="text/javascript" src="js-form-validator.js"></script>
+
+
+<script type="text/javascript" src="./js/js-form-validator.js"></script>
 <script>
 	// Init validator with standart settings
 	new Validator(document.querySelector('#form'), function (err, res) {
@@ -33,6 +46,8 @@
     autoTracking: true
   });
 </script>
+
+
 <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css" media="screen" title="no title">
 <script src="https://code.jquery.com/jquery.js"></script>
