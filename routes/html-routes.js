@@ -1,7 +1,7 @@
 
 
 var path = require("path");
-
+var db= require("../models");
 // Routes
 // =============================================================
 module.exports = function (app) {
@@ -18,9 +18,22 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, "../public/forum.html"));
     });
 
-    // blog route loads blog.html
-    app.get("/cityData", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/cityData.html"));
+    // retrieving information about a city 
+    app.get("/cityData/:CityId", function (req, res) {
+        db.Qol.findOne({
+            where: {
+                CityId: req.params.CityId
+            }
+        }).then(function(Qol){
+            let returnObject = {
+                costOfLiving: Qol.costOfLiving,                
+                nightLife: Qol.nightLife,                
+                lgbtFriendly: Qol.lgbtFriendly,                
+                crimeScore: Qol.crimeScore,
+                comment: Qol.comment               
+            }
+            
+            res.render("cityData", returnObject);
+        })
     });
-
 };
