@@ -1,4 +1,4 @@
-const { now } = require("sequelize/types/lib/utils");
+
 var db = require("./models");
 
 var seed = {
@@ -6,16 +6,16 @@ var seed = {
         db.City.create({
             id: 8,
             name: "Boston", 
-            createdAt: now(),
-            updatedAt: now()
+            createdAt: Date.now(),
+            updatedAt: Date.now()
 
         })
     },
     addUniv: function(){
         db.Univ.create({
             name: "Harvard University",
-            createdAt: now(),
-            updatedAt: now(),
+            createdAt: Date.now(),
+            updatedAt: Date.now(),
             CityId: 8
         })
     }
