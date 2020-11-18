@@ -1,44 +1,61 @@
 $(document).ready(function () {
-  // Getting jQuery references to the post body, title, form, and author select
-  const bodyInput = $("#body");
-  const cityInput = $("#city");
 
-  //WILL ADD INPUT FORMS FOR ALL REQUESTED QOL INFO and consts that store each value
-  // Adding an event listener for when the form is submitted to call update & send data to qol db 
-  $(searchUni).on("click", updateScore)
-  // Gets the part of the url that comes after the "?" (which we have if we're updating a post)\
-  //catch cityID or name to send new review to that city
-  const url = window.location.search;
-  const cityID = "";
+//get to university api route to pull city id from university name
+function getCityId(univ) {
 
-  const newReview = {
-    city: cityinput
-      .val()
-      .trim(),
-    affordability: costScore.val(),
-    safety: safetyScore.val()
+    $.ajax({
+      url: "api/city/" + univ,
+      method: "GET",
+    }).then(function (res) {
+      console.log(res.id)
+      return res.id
+    })
   };
 
-  function submitReview(review) {
-    $.post("/api/review", review, function () {
-      window.location.href = "/cityData";
-    });
+  const newReview = {};
+  ;
+  let cityid="";
+
+  function submitReview(info) {
+    $.post("/api/review/", info, function () {});
   }
-  //submitReview(newReview);
 
-
-  function updateScore(review) {
-//for updating acerage score for each QOL metric
-    $.ajax({
-      method: "PUT",
-      where: { id: cityID },
-      url: "/api/userInput",
-      data: review
+  $("#catchSchool").on("click",function(event){
+    event.preventDefault();
+    // const school = $("#univ").val()
+    const school = "Vanderbilt University";
+    let cityid= getCityId(school)
+    return cityid
     })
-      .then(function () {
-        //to the route that directs to a city's qol scores after the review has been added, an html tahat hasn't been made yet, unless we want to load city's results onto 
-        //same page as search
-        window.location.href = "/cityInfo";
-      });
-  }
+   
+  
+
+  $("#submitrev").on("click", function (event) {
+    event.preventDefault();
+    const crimeScore = $("#crimeScore").val();
+    const costScore = $("#costScore").val();
+    const lgbtScore = $("#lgbtScore").val();
+    const nightScore = $("#nightScore").val();
+    const review = $("#review").val();
+  
+
+      // costOfLiving: costScore.val(),
+      // crimeScore: crimeScore.val(),
+      // lgbtFriendly: lgbtScore.val(),
+      // nightLife: nightScore.val(),
+      // comment: review.val().trim(),
+      // CityId: cityInfo[0].id
+      newReview.costOfLiving = 4;
+      newReview.crimeScore = 5;
+      newReview.lgbtFriendly = 2;
+      newReview.nightLife = 3;
+      newReview.comment = "It's cool ig";
+      newReview.CityId = cityid;
+      console.log(cityid)
+      console.log(newReview.CityId);
+    
+    
+    submitReview(newReview)
+
+  });
 });

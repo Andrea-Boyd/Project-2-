@@ -13,11 +13,12 @@
         <form id="form">
           <div class="university">
             <label for="exampleFormControlInput1">University Name</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="University of City" data-rule="required">
+            <input type="text" class="form-control" id="univ" placeholder="University of City" data-rule="required">
+            <button id="catchSchool">Save</button>
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Cost Of Living (1=cheaper, 5=expensive)</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control" id="costScore">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -27,7 +28,7 @@
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Night Life (1=worse, 5=best)</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control" id="nightScore">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -37,7 +38,7 @@
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">LGBT Friendly (1=less friendly, 5=very friendly)</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control" id="lgbtScore">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -47,7 +48,7 @@
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Amount of Crime (1=safer, 5=unsafe)</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control" id="crimeScore">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -57,7 +58,7 @@
           </div>
           <div class="comments">
             <label for="exampleFormControlTextarea1">Comment</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+            <textarea class="form-control" id="review" rows="2"></textarea>
           </div>
         </form>
         
