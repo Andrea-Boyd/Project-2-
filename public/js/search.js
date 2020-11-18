@@ -23,6 +23,6 @@ function getQOL(univ) {
   })
     .then(function (data) {
       console.log(data);
-      window.location.href = "/cityData/" + data[0].id;
+      window.location.href = "/cityData/" + data.id;
     });
 }
