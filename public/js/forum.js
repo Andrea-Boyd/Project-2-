@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
-//get to university api route to pull city id from university name
-function getCityId(univ) {
+  //get to university api route to pull city id from university name
+  function getCityId(univ) {
 
     $.ajax({
       url: "api/city/" + univ,
@@ -14,21 +14,21 @@ function getCityId(univ) {
 
   const newReview = {};
   ;
-  let cityid="";
+  let cityid = "";
 
   function submitReview(info) {
-    $.post("/api/review/", info, function () {});
+    $.post("/api/review/", info, function () { });
   }
 
-  $("#catchSchool").on("click",function(event){
+  $("#catchSchool").on("click", function (event) {
     event.preventDefault();
     // const school = $("#univ").val()
     const school = "Vanderbilt University";
-    let cityid= getCityId(school)
+    let cityid = getCityId(school)
     return cityid
-    })
-   
-  
+  })
+
+
 
   $("#submitrev").on("click", function (event) {
     event.preventDefault();
@@ -37,14 +37,11 @@ function getCityId(univ) {
     const lgbtScore = $("#lgbtScore").val();
     const nightScore = $("#nightScore").val();
     const review = $("#review").val();
-  
-
-      // costOfLiving: costScore.val(),
-      // crimeScore: crimeScore.val(),
-      // lgbtFriendly: lgbtScore.val(),
-      // nightLife: nightScore.val(),
-      // comment: review.val().trim(),
-      // CityId: cityInfo[0].id
+    if (cityid === "" || cityid === null) {
+      console.log("Please provide a university for your review!")
+      $(".university").append($('<div>').attr("class", "alert alert-danger").text("Please provide and save a university for your review!"));
+    }
+    else {
       newReview.costOfLiving = 4;
       newReview.crimeScore = 5;
       newReview.lgbtFriendly = 2;
@@ -53,9 +50,19 @@ function getCityId(univ) {
       newReview.CityId = cityid;
       console.log(cityid)
       console.log(newReview.CityId);
-    
-    
-    submitReview(newReview)
+
+      submitReview(newReview)
+
+    }
+
+
+    // costOfLiving: costScore.val(),
+    // crimeScore: crimeScore.val(),
+    // lgbtFriendly: lgbtScore.val(),
+    // nightLife: nightScore.val(),
+    // comment: review.val().trim(),
+    // CityId: cityInfo[0].id
+
 
   });
 });
