@@ -1,44 +1,56 @@
+
 $(document).ready(function () {
-  // Getting jQuery references to the post body, title, form, and author select
-  const bodyInput = $("#body");
-  const cityInput = $("#city");
 
-  //WILL ADD INPUT FORMS FOR ALL REQUESTED QOL INFO and consts that store each value
-  // Adding an event listener for when the form is submitted to call update & send data to qol db 
-  $(searchUni).on("click", updateScore)
-  // Gets the part of the url that comes after the "?" (which we have if we're updating a post)\
-  //catch cityID or name to send new review to that city
-  const url = window.location.search;
-  const cityID = "";
+  //globally defining our user's input for entry into qol table
+  const newReview = {};
+  let cityid = "";
 
-  const newReview = {
-    city: cityinput
-      .val()
-      .trim(),
-    affordability: costScore.val(),
-    safety: safetyScore.val()
-  };
-
-  function submitReview(review) {
-    $.post("/api/review", review, function () {
-      window.location.href = "/cityData";
+  //will send newReview object to the qol db then redirect to that city's data page
+  function submitReview(info) {
+    $.post("/api/review/", info, function () {
+      window.location.href = "/cityData/" + cityid
     });
   }
-  //submitReview(newReview);
-
-
-  function updateScore(review) {
-//for updating acerage score for each QOL metric
+  //calls to get city id from univeristy using unvi-api route then feeds the product of that call into out globally availabile city id variable
+  $("#catchSchool").on("click", function (event) {
+    const school = $("#univ").val()
+    event.preventDefault();
     $.ajax({
-      method: "PUT",
-      where: { id: cityID },
-      url: "/api/userInput",
-      data: review
+      url: "api/city/" + school,
+      method: "GET",
+      success: function (res) {
+        return res.id
+      }
+    }).then(function (data) {
+      cityid = data.id;
+      return cityid
     })
-      .then(function () {
-        //to the route that directs to a city's qol scores after the review has been added, an html tahat hasn't been made yet, unless we want to load city's results onto 
-        //same page as search
-        window.location.href = "/cityInfo";
-      });
-  }
+  })
+
+
+  //will select input values for each metric and call to submit user review to the qol db for that city
+  $("#submitrev").on("click", function (event) {
+    event.preventDefault();
+    const crimeScore = $("#crimeScore").val();
+    const costScore = $("#costScore").val();
+    const lgbtScore = $("#lgbtScore").val();
+    const nightScore = $("#nightScore").val();
+    const review = $("#review").val();
+    //ensures that user provides a university so that cityid can be found
+    if (cityid === "" || cityid === null) {
+      $(".university").append($('<div>').attr("class", "alert alert-danger").text("Please provide and save a university for your review!"));
+    }
+    else {
+      newReview.costOfLiving = costScore;
+      newReview.crimeScore = crimeScore;
+      newReview.lgbtFriendly = lgbtScore;
+      newReview.nightLife = nightScore;
+      newReview.comment = review;
+      newReview.CityId = cityid;
+
+      submitReview(newReview)
+
+    }
+
+  });
 });
