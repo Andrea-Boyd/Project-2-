@@ -20,20 +20,19 @@ module.exports = function (app) {
 
     // retrieving information about a city 
     app.get("/cityData/:CityId", function (req, res) {
-        db.Qol.findOne({
+        db.Qol.findAll({
             where: {
                 CityId: req.params.CityId
             }
         }).then(function(Qol){
-            let returnObject = {
+            let qol = {
                 costOfLiving: Qol.costOfLiving,                
                 nightLife: Qol.nightLife,                
                 lgbtFriendly: Qol.lgbtFriendly,                
                 crimeScore: Qol.crimeScore,
                 comment: Qol.comment               
             }
-            
-            res.render("cityData", returnObject);
+            res.render("cityData",JSON.stringify(qol));
         })
     });
 };

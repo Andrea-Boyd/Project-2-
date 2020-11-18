@@ -1,15 +1,15 @@
-<h1>Your Selected School, {{university}} ,is located in {{city}}</h1>
-
-<p>Cost of Living Numerical Rating: {{costOfLiving}}</p>
-
-<p>Night Life Numerical Rating: {{nightLife}}</p>
-
-<p>LGBT Friendly Numerical Rating: {{lgbtFriendly}}</p>
-
-<p>Crime Numerical Rating: {{crimeScore}}</p>
-
-<p>User Comment: {{comment}}</p>
-
+<h1>Reviews for the university's city</h1>
+<ul>{{#each qols}}
+  	<li>
+  	  <p><span class="label">Cost of Living Score:</span> {{this.costOfLiving}}</p>
+      <p><span class="label">Nightlife Score:</span> {{this.nightLife}}</p>
+      <p><span class="label">LGBT Friendliness Score:</span> {{this.lgbtFriendly}}</p>
+      <p><span class="label">Crime/Safety Score:</span> {{this.crimeScore}}</p>
+      <p><span class="label">User comment:</span> {{this.comment}}</p>
+      <br>
+  	</li>
+  {{/each}}
+</ul>
 
 <a href="/forum" class="button">Leave Your Own Review</a>
 
