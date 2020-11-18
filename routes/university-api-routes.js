@@ -18,8 +18,8 @@ module.exports = function (app) {
                 model: db.Qol
             }]
         }).then(function (cityAndUniv) {
-            console.log(cityAndUniv);
-            res.json(cityAndUniv);
+            console.log(cityAndUniv[0]);
+            res.json(cityAndUniv[0]);
         });
     });
 

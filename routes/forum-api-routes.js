@@ -7,7 +7,15 @@ var db = require("../models");
 module.exports = function(app) {
 
 app.post("/api/review", function(req, res) {
-    db.Qol.create(req.body).then(function(dbQol) {
+    console.log(req)
+    db.Qol.create({
+      costOfLiving: req.body.costOfLiving,                
+      nightLife: req.body.nightLife,                
+      lgbtFriendly: req.body.lgbtFriendly,                
+      crimeScore: req.body.crimeScore,
+      comment: req.body.comment,
+      CityId:req.body.CityId  
+      }).then(function(dbQol) {
       res.json(dbQol);
     });
   });
