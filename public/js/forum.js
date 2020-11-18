@@ -1,35 +1,34 @@
+
 $(document).ready(function () {
 
-  //get to university api route to pull city id from university name
-  function getCityId(univ) {
-
-    $.ajax({
-      url: "api/city/" + univ,
-      method: "GET",
-    }).then(function (res) {
-      console.log(res.id)
-      return res.id
-    })
-  };
-
+  //globally defining our user's input for entry into qol table
   const newReview = {};
-  ;
   let cityid = "";
 
+  //will send newReview object to the qol db then redirect to that city's data page
   function submitReview(info) {
-    $.post("/api/review/", info, function () { });
+    $.post("/api/review/", info, function () {
+      window.location.href = "/cityData/" + cityid
+    });
   }
-
+  //calls to get city id from univeristy using unvi-api route then feeds the product of that call into out globally availabile city id variable
   $("#catchSchool").on("click", function (event) {
+    const school = $("#univ").val()
     event.preventDefault();
-    // const school = $("#univ").val()
-    const school = "Vanderbilt University";
-    let cityid = getCityId(school)
-    return cityid
+    $.ajax({
+      url: "api/city/" + school,
+      method: "GET",
+      success: function (res) {
+        return res.id
+      }
+    }).then(function (data) {
+      cityid = data.id;
+      return cityid
+    })
   })
 
 
-
+  //will select input values for each metric and call to submit user review to the qol db for that city
   $("#submitrev").on("click", function (event) {
     event.preventDefault();
     const crimeScore = $("#crimeScore").val();
@@ -37,32 +36,21 @@ $(document).ready(function () {
     const lgbtScore = $("#lgbtScore").val();
     const nightScore = $("#nightScore").val();
     const review = $("#review").val();
+    //ensures that user provides a university so that cityid can be found
     if (cityid === "" || cityid === null) {
-      console.log("Please provide a university for your review!")
       $(".university").append($('<div>').attr("class", "alert alert-danger").text("Please provide and save a university for your review!"));
     }
     else {
-      newReview.costOfLiving = 4;
-      newReview.crimeScore = 5;
-      newReview.lgbtFriendly = 2;
-      newReview.nightLife = 3;
-      newReview.comment = "It's cool ig";
+      newReview.costOfLiving = costScore;
+      newReview.crimeScore = crimeScore;
+      newReview.lgbtFriendly = lgbtScore;
+      newReview.nightLife = nightScore;
+      newReview.comment = review;
       newReview.CityId = cityid;
-      console.log(cityid)
-      console.log(newReview.CityId);
 
       submitReview(newReview)
 
     }
-
-
-    // costOfLiving: costScore.val(),
-    // crimeScore: crimeScore.val(),
-    // lgbtFriendly: lgbtScore.val(),
-    // nightLife: nightScore.val(),
-    // comment: review.val().trim(),
-    // CityId: cityInfo[0].id
-
 
   });
 });
