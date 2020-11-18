@@ -40,9 +40,3 @@ db.sequelize.sync({}).then(function() {
   });
 });
 
-function runSeeds(){
-  seed.addCity;
-  seed.addUniv;
-};
-
-//runSeeds();
