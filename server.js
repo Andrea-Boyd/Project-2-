@@ -18,6 +18,7 @@ var PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 var exphbs = require("express-handlebars");
+const seed = require("./seed");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
@@ -38,3 +39,10 @@ db.sequelize.sync({}).then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
+
+function runSeeds(){
+  seed.addCity;
+  seed.addUniv;
+};
+
+//runSeeds();
