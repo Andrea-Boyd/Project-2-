@@ -1,5 +1,5 @@
-<h1>Your Selected School, {{university}} ,is located in {{city}}</h1>
-
+<h1>Results for your university's city</h1>
+{{#each qolArray}}
 <p>Cost of Living Numerical Rating: {{costOfLiving}}</p>
 
 <p>Night Life Numerical Rating: {{nightLife}}</p>
@@ -9,7 +9,8 @@
 <p>Crime Numerical Rating: {{crimeScore}}</p>
 
 <p>User Comment: {{comment}}</p>
-
+{{/each}}
 
 <a href="/forum" class="button">Leave Your Own Review</a>
+<button class=newSearch>New Search</button>
 

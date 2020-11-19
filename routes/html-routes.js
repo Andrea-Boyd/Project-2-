@@ -1,7 +1,7 @@
 
 
 var path = require("path");
-var db= require("../models");
+var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function (app) {
@@ -20,20 +20,27 @@ module.exports = function (app) {
 
     // retrieving information about a city 
     app.get("/cityData/:CityId", function (req, res) {
-        db.Qol.findOne({
+        db.Qol.findAll({
             where: {
                 CityId: req.params.CityId
             }
-        }).then(function(Qol){
-            let returnObject = {
-                costOfLiving: Qol.costOfLiving,                
-                nightLife: Qol.nightLife,                
-                lgbtFriendly: Qol.lgbtFriendly,                
-                crimeScore: Qol.crimeScore,
-                comment: Qol.comment               
+        }).then(function (Qol) {
+            if (!null) {
+                
+                let qols={
+                    qolArray:[]
+                };
+                for (var i=0; i<Qol.length; i++){
+                    qols.qolArray.push(Qol[i].dataValues);
+                }
+                console.log(qols.qolArray);
+                res.render("cityData", qols);
             }
-            
-            res.render("cityData", returnObject);
-        })
+            else {
+                alert("No entries found. Sending back to univerCITY home")
+                res.sendFile(path.join(__dirname, "../public/search.html"))
+            }
+
+        });
     });
 };
